@@ -7,7 +7,7 @@ function withPeople(WrappedComponent) {
     componentDidMount() {
       this.props.getPeople();
     }
-
+    // // this is for if I want to make a request based on an event
     // onGetPeopleHandler = () => {
     //   this.props.getPeople();
     // };
