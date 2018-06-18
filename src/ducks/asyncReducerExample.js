@@ -25,7 +25,7 @@ export default function asyncReducerExample(state = initialState, action) {
       return {
         ...state,
         isLoading: false,
-        people: action.payload.data
+        people: action.payload.data.results
       };
     default:
       return state;

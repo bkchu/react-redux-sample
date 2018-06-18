@@ -1,10 +1,10 @@
-import { createStore } from 'redux';
+// import { createStore } from 'redux';
 
-import standardReducerExample from './ducks/standardReducerExample';
+// import standardReducerExample from './ducks/standardReducerExample';
 
-const store = createStore(standardReducerExample);
+// const store = createStore(standardReducerExample);
 
-export default store;
+// export default store;
 
 //STORE WITH MIDDLEWARE
 // import { createStore, applyMiddleware } from 'redux'; //Notice redux, not react-redux
@@ -32,17 +32,17 @@ export default store;
 // export default store; //The store is used in index.js by the react-redux top level provider
 
 //STORE WITH MULTIPLE REDUCERS AND MIDDLEWARES
-// import { createStore, combineReducers, applyMiddleware } from 'redux'; //Notice redux, not react-redux
-// import standardReducerExample from './ducks/standardReducerExample';
-// import asyncReducerExample from './ducks/asyncReducerExample';
-// import promiseMiddleware from 'redux-promise-middleware';
+import { createStore, combineReducers, applyMiddleware } from 'redux'; //Notice redux, not react-redux
+import standardReducerExample from './ducks/standardReducerExample';
+import asyncReducerExample from './ducks/asyncReducerExample';
+import promiseMiddleware from 'redux-promise-middleware';
 
-// let multipleReducers = combineReducers({
-//   profile: standardReducerExample,
-//   people: asyncReducerExample
-// });
-// let storeMiddleware = applyMiddleware(promiseMiddleware());
+let multipleReducers = combineReducers({
+  profile: standardReducerExample,
+  people: asyncReducerExample
+});
+let storeMiddleware = applyMiddleware(promiseMiddleware());
 
-// let store = createStore(multipleReducers, storeMiddleware);
+let store = createStore(multipleReducers, storeMiddleware);
 
-// export default store; //The store is used in index.js by the react-redux top level provider
+export default store; //The store is used in index.js by the react-redux top level provider
