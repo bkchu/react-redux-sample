@@ -22,18 +22,24 @@ class Profile extends Component {
   render() {
     //these props are coming from the peopleHoc
     const { loading, people } = this.props;
+
     const peopleDisplay = loading ? (
       <p>People Loading...</p>
     ) : (
       people[0] && people.map(person => <p key={person.url}>{person.name}</p>)
     );
+
+    //loading states are abstracted into the Planets component.
     const planetDisplay = (
       <Planets render={planets => <List list={planets} type="name" />} />
     );
 
     return (
       <div>
+        <h2>People</h2>
         {peopleDisplay}
+
+        <h2>Planets</h2>
         {planetDisplay}
       </div>
     );
