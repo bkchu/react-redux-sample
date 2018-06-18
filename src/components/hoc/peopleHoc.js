@@ -17,7 +17,7 @@ function withPeople(WrappedComponent) {
         <WrappedComponent
           {...this.props}
           people={this.props.people}
-          loading={this.props.isLoading}
+          loading={this.props.peopleLoading}
           // clicked={this.onGetPeopleHandler}
         />
       );

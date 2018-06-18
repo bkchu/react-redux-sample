@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+
+import Planets from './renderprop/Planets';
+import List from './List/List';
+
 import withPeople from './hoc/peopleHoc';
 // import { connect } from 'react-redux';
 
@@ -18,14 +22,19 @@ class Profile extends Component {
   render() {
     //these props are coming from the peopleHoc
     const { loading, people } = this.props;
-    const loadingDisplay = loading && <p>Loading...</p>;
-    const peopleDisplay =
-      people[0] && people.map(person => <p key={person.url}>{person.name}</p>);
+    const peopleDisplay = loading ? (
+      <p>People Loading...</p>
+    ) : (
+      people[0] && people.map(person => <p key={person.url}>{person.name}</p>)
+    );
+    const planetDisplay = (
+      <Planets render={planets => <List list={planets} type="name" />} />
+    );
 
     return (
       <div>
-        {loadingDisplay}
         {peopleDisplay}
+        {planetDisplay}
       </div>
     );
   }
